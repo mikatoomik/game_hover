@@ -1,0 +1,7 @@
+<%= simple_form_for [@event] do |f| %>
+  <%= f.input :date %>
+  <%= f.input :details %>
+  <%= f.input :place %>
+  <%= f.association :game %>
+  <%= f.submit "add a game", class: "btn btn-primary" %>
+<% end %>
