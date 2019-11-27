@@ -1,13 +1,12 @@
 <h1>Event List</h1>
 
-<%= @events %>
 
 <ol>
   <% @events.each do |event| %>
     <li><%= event.game.name %>
     <%= event.details %>
-    <p>hello</p>
     <%= event.date %>
+    <%= cl_image_tag event.game.photo %>
     </li>
   <%end%>
 
