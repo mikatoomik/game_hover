@@ -2,7 +2,7 @@
 <ul>
   <% @games.each do |game| %>
   <li>
-    <%= game.name %>
+    <%= cl_image_tag game.photo %> - <%= game.name %>
   </li>
   <% end %>
 </ul>
