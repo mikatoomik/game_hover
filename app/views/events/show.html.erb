@@ -1,0 +1,32 @@
+<h1>Show page</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="card-trip">
+        <%= cl_image_tag @event.game.photo %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= @event.game.name %></h2>
+            <p><%= @event.details %></p>
+
+          </div>
+          <h2 class="card-trip-pricing"><%= @event.date.strftime("on %d %m %Y at %I:%M%p") %></h2>
+          <%= cl_image_tag @event.user.photo, class:"card-trip-user-show avatar-bordered" %>
+          <% i = 0 %>
+            <% @event.user_events.each do |invit| %>
+              <% i += 16 %>
+              <%= cl_image_tag invit.user.photo, class:"card-trip-user-show avatar-bordered", style:"left: #{i}px" %>
+          <%end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <%= image_tag "marseille_9.jpg" %>
+    </div>
+  </div>
+  <div class="row"></div>
+</div>
+
+
+
+
