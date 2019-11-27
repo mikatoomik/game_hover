@@ -4,6 +4,10 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
+  def index_my
+    @events = Event.where("user_id = ?", current_user)
+  end
+
   def show
   end
 
@@ -40,3 +44,13 @@ class EventsController < ApplicationController
     params.require(:event).permit(:date, :details, :place, :game_id)
   end
 end
+
+
+
+    # @cocktail_new = Cocktail.new
+    # if params_search && params_search[:query] != ""
+    #   @cocktails = Cocktail.where("name = ?", params_search[:query])
+    # else
+    #   @cocktails = Cocktail.all
+    # end
+
