@@ -1,4 +1,4 @@
-<h1>Event List</h1>
+
 <div class="container">
   <div class="row">
     <% @events.each do |event| %>
@@ -9,10 +9,14 @@
           <div>
             <h2><%= event.game.name %></h2>
             <p><%= event.details %></p>
+            <% i = 0 %>
+            <% event.user_events.each do |invit| %>
+              <% i += 16 %>
+              <%= cl_image_tag invit.user.photo, class:"card-trip-invit avatar-bordered", style:"left: #{i}px" %>
+          <%end %>
           </div>
-          <h2 class="card-trip-pricing"><%= event.date %></h2>
-          <%= cl_image_tag event.user.photo, class:"card-trip-user avatar-bordered"
-          %>
+          <h2 class="card-trip-pricing"><%= event.date.strftime("on %d %m %Y at %I:%M%p") %></h2>
+          <%= cl_image_tag event.user.photo, class:"card-trip-user avatar-bordered" %>
         </div>
       </div>
     </div>
