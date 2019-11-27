@@ -1,4 +1,11 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
 
 
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/featured/?board-games);">
+  <div class="container">
+    <h1><strong>Game</strong> <span id="banner-typed-text"></span></h1>
+    <p>Change your live and play for life!</p>
+    <%=link_to events_path do %>
+      <button class="btn btn-flat" href="#">Play now</button>
+    <%end%>
+  </div>
+</div>
