@@ -1,13 +1,21 @@
 <h1>Event List</h1>
-
-
-<ol>
-  <% @events.each do |event| %>
-    <li><%= event.game.name %>
-    <%= event.details %>
-    <%= event.date %>
-    <%= cl_image_tag event.game.photo %>
-    </li>
-  <%end%>
-
-</ol>
+<div class="container">
+  <div class="row">
+    <% @events.each do |event| %>
+    <div class="col-md-4 col-lg-3 my-3">
+      <div class="card-trip">
+        <%= cl_image_tag event.game.photo %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= event.game.name %></h2>
+            <p><%= event.details %></p>
+          </div>
+          <h2 class="card-trip-pricing"><%= event.date %></h2>
+          <%= cl_image_tag event.user.photo, class:"card-trip-user avatar-bordered"
+          %>
+        </div>
+      </div>
+    </div>
+    <%end%>
+  </div>
+</div>
