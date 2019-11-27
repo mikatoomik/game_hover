@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <% @events.each do |event| %>
+    <div class="col-md-4 col-lg-3 my-3">
+      <div class="card-trip">
+        <%= cl_image_tag event.game.photo %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= event.game.name %></h2>
+            <p><%= event.details %></p>
+            <% i = 0 %>
+            <% event.user_events.each do |invit| %>
+              <% i += 16 %>
+              <%= cl_image_tag invit.user.photo, class:"card-trip-invit avatar-bordered", style:"left: #{i}px" %>
+          <%end %>
+          </div>
+          <h2 class="card-trip-pricing"><%= event.date.strftime("on %d %m %Y at %I:%M%p") %></h2>
+          <%= cl_image_tag event.user.photo, class:"card-trip-user avatar-bordered" %>
+        </div>
+      </div>
+    </div>
+    <%end%>
+  </div>
+</div>
+
