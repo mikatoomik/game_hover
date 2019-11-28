@@ -4,6 +4,7 @@
     <% @events.each do |event| %>
     <div class="col-md-4 col-lg-3 my-3">
       <div class="card-trip">
+      <%= link_to event_path(event) do %>
         <%= cl_image_tag event.game.photo %>
         <div class="card-trip-infos">
           <div>
@@ -18,6 +19,7 @@
           <h2 class="card-trip-pricing"><%= event.date.strftime("on %d %m %Y at %I:%M%p") %></h2>
           <%= cl_image_tag event.user.photo, class:"card-trip-user avatar-bordered" %>
         </div>
+        <% end %>
       </div>
     </div>
     <%end%>
