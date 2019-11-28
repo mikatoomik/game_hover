@@ -1,8 +1,23 @@
-<h1>Games List</h1>
-<ul>
-  <% @games.each do |game| %>
-  <li>
-    <%= cl_image_tag game.photo %> - <%= game.name %>
-  </li>
-  <% end %>
-</ul>
+<h1 class="titre">Games List</h1>
+<div class="container">
+  <div class="row">
+    <% @games.each do |game| %>
+    <div class="col-lg-6 my-3">
+      <div class="card-product">
+        <%= cl_image_tag game.photo %>
+        <div class="card-product-infos">
+          <div class="d-flex justify-content-between">
+            <h2><%= game.name %></h2>
+            <h4>Max Players: <%= game.player_max%></h4>
+          </div>
+          <p><%= game.rules %></p>
+        </div>
+      </div>
+    </div>
+    <%end%>
+  </div>
+</div>
+
+
+
+
