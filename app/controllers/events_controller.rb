@@ -2,6 +2,13 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy, :add_player]
   def index
     @events = Event.all
+    # @events = Event.geocoded
+    # @markers = @events.map do |event|
+    #   {
+    #     lat: event.latitude,
+    #     lng: event.longitude
+    #   }
+    # end
   end
 
   def index_my
@@ -9,14 +16,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @events = Event.geocoded
-
-    @markers = @events.map do |event|
-      {
-        lat: event.latitude,
-        lng: event.longitude
-      }
-    end
+    @markers = [{lat: @event.latitude, lng: @event.longitude}]
   end
 
   def new
