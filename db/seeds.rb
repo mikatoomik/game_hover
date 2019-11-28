@@ -26,6 +26,7 @@ games.each do |item|
   break if i == 101
   game = Game.new
   game.name = item['name']
+  game.rules = Faker::Lorem.sentence
   game.player_max = item['maxPlayers'].to_i
   game.remote_photo_url = item['thumbnail']
   game.save
@@ -51,7 +52,7 @@ users = User.all
 games = Game.all
 16.times do
   event = Event.new
-  event.date = Date.today
+  event.date = Faker::Date.forward(days: 23)
   event.user = users.sample
   event.game = games.sample
   event.place = Faker::Address.full_address
