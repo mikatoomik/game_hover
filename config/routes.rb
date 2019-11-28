@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     collection do
       get 'index_my'
     end
+    member do
+      post 'add_player'
+      delete 'decline'
+    end
   end
 
 

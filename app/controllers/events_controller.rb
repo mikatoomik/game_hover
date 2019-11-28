@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :add_player]
   def index
     @events = Event.all
   end
@@ -40,6 +40,28 @@ class EventsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def add_player
+    @invit = UserEvent.new
+    @invit.event = @event
+    @invit.user = current_user
+    if @invit.save
+      redirect_to event_path, :notice => 'You are added to the game'
+    else
+      redirect_to event_path, :alert => 'Something go wrong!'
+    end
+  end
+
+  def decline
+    @invit = UserEvent.where("user_id = ? AND event_id = ?", current_user, params[:id])
+    if !@invit.empty?
+      if @invit[0].delete
+        redirect_to event_path, :alert => 'You have decline'
+      else
+        render "index", :alert => 'Something go wrong!'
+      end
+    end
   end
 
   private

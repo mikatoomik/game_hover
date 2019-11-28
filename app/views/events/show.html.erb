@@ -18,6 +18,8 @@
               <%= cl_image_tag invit.user.photo, class:"card-trip-user-show avatar-bordered", style:"left: #{i}px" %>
           <%end %>
         </div>
+      <%= link_to "S'inscrire", add_player_event_path, method: :post %>
+      <%= link_to "Decline", decline_event_path, method: :delete %>
       </div>
     </div>
     <div class="col-lg-8">
@@ -31,8 +33,10 @@
       </div>
     </div>
   </div>
-  <div class="row"></div>
+  <div class="row">
+
 </div>
+  </div>
 
 
 
