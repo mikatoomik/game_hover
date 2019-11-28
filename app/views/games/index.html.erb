@@ -1,7 +1,6 @@
 <h1>Games List</h1>
 <ul id="games">
   <% @games.each do |game| %>
-  <li><%= game.name %></li>
   <li>
     <%= cl_image_tag game.photo %> - <%= game.name %>
   </li>
