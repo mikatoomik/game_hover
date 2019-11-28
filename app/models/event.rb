@@ -14,7 +14,6 @@ class Event < ApplicationRecord
       game: [:name]
     },
     using: {
-      tsearch: { prefix: true, any_word: true, dictionary: "french" },
-      trigram: {}
+      tsearch: { prefix: true }
     }
 end
