@@ -24,8 +24,12 @@
       <%= image_tag "marseille_9.jpg" %>
     </div>
   </div>
-  <div class="row"></div>
+  <div class="row">
+
+      <%= link_to "S'inscrire", add_player_event_path, method: :post %>
+      <%= link_to "Decline", decline_event_path, method: :delete %>
 </div>
+  </div>
 
 
 
