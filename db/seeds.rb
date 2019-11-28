@@ -1,5 +1,6 @@
 require 'open-uri'
 require 'json'
+require 'faker'
 
 # clean db
 puts "clean db start"
@@ -22,7 +23,7 @@ games = list_game.flatten
 i = 0
 games.each do |item|
   i += 1
-  break if i == 31
+  break if i == 101
   game = Game.new
   game.name = item['name']
   game.player_max = item['maxPlayers'].to_i
@@ -33,12 +34,12 @@ puts "#{Game.count} games created"
 
 # Creation users
 puts "seed users start"
-10.times do
+20.times do
   user = User.new
-  user.email = "test+#{i}@example.com"
+  user.email = Faker::Internet.email
   user.password = 'valid_password'
   user.password_confirmation = 'valid_password'
-  user.remote_photo_url = "https://avatars2.githubusercontent.com/u/55501431?s=460&v=4"
+  user.remote_photo_url = Faker::Avatar.image(size: "50x50")
   user.save!
   i += 1
 end
@@ -48,15 +49,24 @@ puts "#{User.count} users created"
 puts "seed events start"
 users = User.all
 games = Game.all
-villes = ['Nice', 'Marseille', 'Toulon']
-6.times do
+16.times do
   event = Event.new
   event.date = Date.today
   event.user = users.sample
   event.game = games.sample
-  event.place = villes.sample
+  event.place = Faker::Address.full_address
   event.save
 end
 puts "#{Event.count} events created"
 
-
+# Creation invits
+puts "seed invits start"
+users = User.all
+event = Event.all
+20.times do
+  invit = UserEvent.new
+  invit.user = users.sample
+  invit.event = event.sample
+  invit.save
+end
+puts "#{UserEvent.count} invits created"
