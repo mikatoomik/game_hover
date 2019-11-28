@@ -1,8 +1,16 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy, :add_player]
   def index
-    @events = Event.all
-    @events = @events.order(:date)
+
+    if params[:query].present?
+      sql_query = " details ILIKE :query OR place ILIKE :query"
+      @events = Event.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @events = Event.all
+      @events = @events.order(:date)
+    end
+
+   
     # @events = Event.geocoded
     # @markers = @events.map do |event|
     #   {
@@ -10,6 +18,7 @@ class EventsController < ApplicationController
     #     lng: event.longitude
     #   }
     # end
+
   end
 
   def index_my
@@ -77,12 +86,4 @@ class EventsController < ApplicationController
   end
 end
 
-
-
-    # @cocktail_new = Cocktail.new
-    # if params_search && params_search[:query] != ""
-    #   @cocktails = Cocktail.where("name = ?", params_search[:query])
-    # else
-    #   @cocktails = Cocktail.all
-    # end
 

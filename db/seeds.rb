@@ -60,6 +60,21 @@ games = Game.all
 end
 puts "#{Event.count} events created"
 
+
+#recherche dans games
+#sample = JSON.load(open(url).read)
+
+#puts 'Creating games...'
+#sample['games'].each do |game|
+#  Game.create! game.slice('name', 'rules', 'photo', 'player_max')
+#end
+
+
+#puts 'Creating events...'
+#sample['events'].each do |event|
+#  Event.create! event.slice('date', 'details', 'place').merge(game: games[event["game_slug"]])
+#end
+
 # Creation invits
 puts "seed invits start"
 users = User.all
@@ -71,3 +86,4 @@ event = Event.all
   invit.save
 end
 puts "#{UserEvent.count} invits created"
+
