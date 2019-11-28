@@ -3,14 +3,13 @@ class EventsController < ApplicationController
   def index
 
     if params[:query].present?
-      sql_query = " details ILIKE :query OR place ILIKE :query"
-      @events = Event.where(sql_query, query: "%#{params[:query]}%")
+      @events = Event.global_search("%#{params[:query]}%")
     else
       @events = Event.all
       @events = @events.order(:date)
     end
 
-   
+
     # @events = Event.geocoded
     # @markers = @events.map do |event|
     #   {
