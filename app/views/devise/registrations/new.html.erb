@@ -1,4 +1,8 @@
-<h2>Sign up</h2>
+<div  class="p-3 mb-2">
+
+  <h1 class="text-primary font-weight-bold text-center">Crée ton identifiant</h1>
+  <p class="text-primary text-center">et rejoins les joueurs de ta région !</p>
+  <div class= "mx-auto" style="width: 500px">
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -7,7 +11,7 @@
     <%= f.input :email,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email" }%>
+                input_html: { autocomplete: "email" } %>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
@@ -18,7 +22,8 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Sign up", class: "btn btn-primary btn-block" %>
+  </div>
   </div>
 <% end %>
 
