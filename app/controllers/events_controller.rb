@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy, :add_player]
   def index
     @events = Event.all
+    @events = @events.order(:date)
     # @events = Event.geocoded
     # @markers = @events.map do |event|
     #   {
@@ -13,6 +14,7 @@ class EventsController < ApplicationController
 
   def index_my
     @events = Event.where("user_id = ?", current_user)
+    @events = @events.order(:date)
   end
 
   def show
