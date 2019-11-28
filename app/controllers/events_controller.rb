@@ -47,10 +47,12 @@ class EventsController < ApplicationController
 
   def decline
     @invit = UserEvent.where("user_id = ? AND event_id = ?", current_user, params[:id])
-    if @invit[0].delete
-      redirect_to event_path, :alert => 'You have decline'
-    else
-      render "index", :alert => 'Something go wrong!'
+    if !@invit.empty?
+      if @invit[0].delete
+        redirect_to event_path, :alert => 'You have decline'
+      else
+        render "index", :alert => 'Something go wrong!'
+      end
     end
   end
 
