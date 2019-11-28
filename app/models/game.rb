@@ -5,7 +5,7 @@ class Game < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_name,
-    against: [:title],
+    against: [:name],
     using: {
       tsearch: { prefix: true }
     }

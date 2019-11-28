@@ -59,4 +59,12 @@ villes = ['Nice', 'Marseille', 'Toulon']
 end
 puts "#{Event.count} events created"
 
+#recherche dans games
+sample = JSON.load(open(url).read)
+
+puts 'Creating games...'
+sample['games'].each do |game|
+  Game.create! game.slice('name', 'rules', 'photo', 'player_max')
+end
+
 

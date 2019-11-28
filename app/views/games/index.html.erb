@@ -1,17 +1,9 @@
 <h1>Games List</h1>
-<ul>
+<ul id="games">
   <% @games.each do |game| %>
+  <li><%= game.name %></li>
   <li>
     <%= cl_image_tag game.photo %> - <%= game.name %>
   </li>
   <% end %>
 </ul>
-
-<%= form_tag movies_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a movie"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
