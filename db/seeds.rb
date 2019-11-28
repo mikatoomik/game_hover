@@ -68,3 +68,7 @@ sample['games'].each do |game|
 end
 
 
+puts 'Creating events...'
+sample['events'].each do |event|
+  Event.create! event.slice('date', 'details', 'place').merge(game: games[event["game_slug"]])
+end

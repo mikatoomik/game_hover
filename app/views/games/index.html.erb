@@ -1,3 +1,12 @@
+<%= form_tag games_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Chercher un jeu"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+
 <h1>Games List</h1>
 <ul id="games">
   <% @games.each do |game| %>

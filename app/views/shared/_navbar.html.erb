@@ -31,7 +31,7 @@
         </button>
       </div>
       </form> -->
-        <%= form_tag games_path, method: :get do %>
+        <%= form_tag games_path events_path, method: :get do %>
         <%= text_field_tag :query,
         params[:query],
         class: "form-control",
