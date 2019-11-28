@@ -10,25 +10,25 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item active px-3">
         <%= link_to root_path, class: "nav-link" do %>
           <i class="fas fa-home fa-2x"></i>
         <% end %>
       </li>
 
-      <li class="nav-item active">
+      <li class="nav-item active px-3">
         <%= link_to index_my_events_path, class: "nav-link"  do %>
           <i class="fas fa-dice fa-2x"></i>
         <% end %>
       </li>
 
-      <li class="nav-item active">
+      <li class="nav-item active px-3">
         <%= link_to new_event_path, class: "nav-link" do %>
           <i class="fas fa-plus-circle fa-2x"></i>
         <% end %>
       </li>
 
-      <li class="nav-item active">
+      <li class="nav-item active px-3">
         <%= link_to games_path, class: "nav-link" do %>
           <i class="fas fa-chess-knight fa-2x"></i>
         <% end %>
@@ -36,25 +36,13 @@
 
 
       <li>
-      <!-- <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-      <div class="search-form-control form-group">
-        <input class="form-control string required px-5" type="text" placeholder="chercher un jeu"name="search[query]" id="search_query" />
-        <button name="button" type="submit" class="btn btn-flat pt-0" >
-        <i class="fas fa-search"></i>
-        </button>
-      </div>
-      </form> -->
-        <%= form_tag games_path events_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Chercher un jeu"
-        %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <%= form_tag events_path, method: :get do %>
+        <%= text_field_tag :query, params[:query], class: "form-control" , placeholder: "search" %>
         <% end %>
       </li>
 
-      <li class="nav-item">
+
+      <li class="nav-item px-3">
         <% if !user_signed_in? %>
         <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
         <% end %>
