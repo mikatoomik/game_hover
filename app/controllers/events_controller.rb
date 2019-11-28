@@ -41,7 +41,7 @@ class EventsController < ApplicationController
     if @invit.save
       redirect_to event_path, :notice => 'You are added to the game'
     else
-      render "index", :alert => 'Something go wrong!'
+      redirect_to event_path, :alert => 'Something go wrong!'
     end
   end
 
