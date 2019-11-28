@@ -12,21 +12,28 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <%= link_to root_path, class: "nav-link" do %>
-          <i class="fas fa-home"></i>
+          <i class="fas fa-home fa-2x"></i>
         <% end %>
       </li>
 
       <li class="nav-item active">
         <%= link_to index_my_events_path, class: "nav-link"  do %>
-          <i class="fas fa-dice"></i>
+          <i class="fas fa-dice fa-2x"></i>
         <% end %>
       </li>
 
       <li class="nav-item active">
         <%= link_to new_event_path, class: "nav-link" do %>
-          <i class="fas fa-plus-circle"></i>
+          <i class="fas fa-plus-circle fa-2x"></i>
         <% end %>
       </li>
+
+      <li class="nav-item active">
+        <%= link_to games_path, class: "nav-link" do %>
+          <i class="fas fa-chess-knight fa-2x"></i>
+        <% end %>
+      </li>
+
 
       <li>
       <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
