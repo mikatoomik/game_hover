@@ -19,3 +19,15 @@ ul.navbar-nav .mr-auto {
   display: flex;
   justify-content: space-around;
 }
+
+
+.home{
+  position: relative;
+
+   &:hover:before {
+    position: absolute;
+    content: 'home';
+      }
+}
+
+
