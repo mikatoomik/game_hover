@@ -1,8 +1,22 @@
+<h1 class="text-primary font-weight-bold text-center" style="padding-top: 20px;">Mes parties</h1>
 <div class="container">
+
+<h2 class="text-primary font-weight-bold">
+Vous avez <%= pluralize @events.size, "event" %> prévus
+</h2>
+  <% if @events.blank? %>
+  <div class="row align-items-center px-3">
+    Organisez votre première partie.
+    <%= link_to new_event_path, class: "nav-link" do %>
+      <i class="fas fa-plus-circle fa-2x"></i>
+    <% end %>
+  </div>
+  <% else %>
   <div class="row">
     <% @events.each do |event| %>
     <div class="col-md-4 col-lg-3 my-3">
       <div class="card-trip">
+        <%= link_to event_path(event) do %>
         <%= cl_image_tag event.game.photo %>
         <div class="card-trip-infos">
           <div>
@@ -10,16 +24,16 @@
             <p><%= event.details %></p>
             <% i = 0 %>
             <% event.user_events.each do |invit| %>
-              <% i += 16 %>
-              <%= cl_image_tag invit.user.photo, class:"card-trip-invit avatar-bordered", style:"left: #{i}px" %>
-          <%end %>
+            <% i += 16 %>
+            <%= cl_image_tag invit.user.photo, class:"card-trip-invit avatar-bordered", style:"left: #{i}px" %>
+            <%end %>
           </div>
           <h2 class="card-trip-pricing"><%= event.date.strftime("on %d %m %Y at %I:%M%p") %></h2>
-          <%= cl_image_tag event.user.photo, class:"card-trip-user avatar-bordered" %>
         </div>
+        <% end %>
       </div>
     </div>
     <%end%>
   </div>
+  <% end %>
 </div>
-
