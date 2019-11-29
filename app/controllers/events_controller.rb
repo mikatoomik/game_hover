@@ -26,7 +26,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @markers = [{lat: @event.latitude, lng: @event.longitude}]
+    @markers = [{ lat: @event.latitude, lng: @event.longitude, infoWindow: render_to_string(partial: "info_window", locals: { place: @event.place }) }]
   end
 
   def new
