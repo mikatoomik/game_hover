@@ -26,8 +26,35 @@ ul.navbar-nav .mr-auto {
 
    &:hover:before {
     position: absolute;
-    content: 'home';
+    content: 'Home';
       }
 }
 
+.mes-parties{
+  position: relative;
+
+   &:hover:before {
+    position: absolute;
+    content: 'Mes parties';
+      }
+
+}
+
+.ta-partie{
+  position: relative;
+
+   &:hover:before {
+    position: absolute;
+    content: 'Crée ta partie';
+      }
+}
+
+.jeux{
+  position: relative;
+
+   &:hover:before {
+    position: absolute;
+    content: 'tous les jeux';
+      }
+}
 
