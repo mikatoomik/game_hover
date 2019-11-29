@@ -36,7 +36,8 @@
 
 
       <li>
-        <%= form_tag events_path, method: :get do %>
+        <% path = controller_name == "events" ? events_path : games_path %>
+        <%= form_tag path, method: :get do %>
         <%= text_field_tag :query, params[:query], class: "form-control" , placeholder: "search" %>
         <% end %>
       </li>
