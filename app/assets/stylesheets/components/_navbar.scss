@@ -27,8 +27,9 @@ ul.navbar-nav .mr-auto {
    &:hover:before {
     position: absolute;
     content: 'Home';
-    top: -20px;
+    top: -16px;
     font-size: x-small;
+    line-height: 0.9;
       }
 }
 
@@ -40,6 +41,7 @@ ul.navbar-nav .mr-auto {
     content: 'Mes parties';
     top: -20px;
     font-size: x-small;
+    line-height: 0.9;
       }
 
 }
@@ -52,6 +54,7 @@ ul.navbar-nav .mr-auto {
     content: 'Crée ta partie';
     top: -20px;
     font-size: x-small;
+    line-height: 0.9;
       }
 }
 
@@ -63,6 +66,7 @@ ul.navbar-nav .mr-auto {
     content: 'Les jeux';
     top: -20px;
     font-size: x-small;
+    line-height: 0.9;
       }
 }
 
