@@ -18,9 +18,6 @@
           <%end %>
           <p class="font-weight-bold text-right"> <%= event.place %> </p>
           </div>
-           <h2 class="card-trip-pricing"><%= event.date.strftime("on %d %m %Y at %I:%M%p") %></h2>
-
-
           <h3 class="card-trip-pricing border border-primary rounded p-1 mx-1"><%= event.date.time.to_formatted_s(:short) %></h3>
           <%= cl_image_tag event.user.photo, class:"card-trip-user avatar-bordered" %>
         </div>
