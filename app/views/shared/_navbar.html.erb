@@ -10,33 +10,34 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active px-3">
-        <%= link_to root_path, class: "nav-link" do %>
+      <li class="nav-item active px-3 ">
+        <%= link_to root_path, class: "nav-link home" do %>
           <i class="fas fa-home fa-2x"></i>
         <% end %>
       </li>
 
       <li class="nav-item active px-3">
-        <%= link_to index_my_events_path, class: "nav-link"  do %>
+        <%= link_to index_my_events_path, class: "nav-link mes-parties"  do %>
           <i class="fas fa-dice fa-2x"></i>
         <% end %>
       </li>
 
       <li class="nav-item active px-3">
-        <%= link_to new_event_path, class: "nav-link" do %>
+        <%= link_to new_event_path, class: "nav-link ta-partie" do %>
           <i class="fas fa-plus-circle fa-2x"></i>
         <% end %>
       </li>
 
       <li class="nav-item active px-3">
-        <%= link_to games_path, class: "nav-link" do %>
+        <%= link_to games_path, class: "nav-link jeux" do %>
           <i class="fas fa-chess-knight fa-2x"></i>
         <% end %>
       </li>
 
 
       <li>
-        <%= form_tag events_path, method: :get do %>
+        <% path = controller_name == "events" ? events_path : games_path %>
+        <%= form_tag path, method: :get do %>
         <%= text_field_tag :query, params[:query], class: "form-control" , placeholder: "search" %>
         <% end %>
       </li>

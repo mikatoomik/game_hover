@@ -19,3 +19,54 @@ ul.navbar-nav .mr-auto {
   display: flex;
   justify-content: space-around;
 }
+
+
+.home{
+  position: relative;
+
+   &:hover:before {
+    position: absolute;
+    content: 'Home';
+    top: -16px;
+    font-size: x-small;
+    line-height: 0.9;
+      }
+}
+
+.mes-parties{
+  position: relative;
+
+   &:hover:before {
+    position: absolute;
+    content: 'Mes parties';
+    top: -20px;
+    font-size: x-small;
+    line-height: 0.9;
+      }
+
+}
+
+.ta-partie{
+  position: relative;
+
+   &:hover:before {
+    position: absolute;
+    content: 'Crée ta partie';
+    top: -20px;
+    font-size: x-small;
+    line-height: 0.9;
+      }
+}
+
+.jeux{
+  position: relative;
+
+   &:hover:before {
+    position: absolute;
+    content: 'Les jeux';
+    top: -20px;
+    font-size: x-small;
+    line-height: 0.9;
+      }
+}
+
