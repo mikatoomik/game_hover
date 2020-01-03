@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  devise :omniauthable, omniauth_providers: [:facebook]
+  devise :omniauthable, omniauth_providers: [:facebook, :github]
 
   mount_uploader :photo, PhotoUploader
   has_many :events
@@ -13,6 +13,15 @@ class User < ApplicationRecord
   def self.from_facebook(auth)
     where(facebook_id: auth.uid).first_or_create do |user|
       user.email = auth.info.email
+      user.remote_photo_url = auth.info.image
+      user.password = Devise.friendly_token[0,20]
+    end
+  end
+
+  def self.from_github(auth)
+    where(github_id: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.remote_photo_url = auth.info.image
       user.password = Devise.friendly_token[0,20]
     end
   end

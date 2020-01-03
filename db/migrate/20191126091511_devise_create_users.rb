@@ -34,6 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       ## Omniauth
       t.string :facebook_id
+      t.string :github_id
 
 
       t.timestamps null: false
