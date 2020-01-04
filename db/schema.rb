@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 2019_11_27_163430) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "facebook_id"
+    t.string "github_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
